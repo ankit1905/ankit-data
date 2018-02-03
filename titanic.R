@@ -272,7 +272,7 @@ Prediction <- predict(fit, test)
 submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
 write.csv(submit, file = "firstforest.csv", row.names = FALSE)
 
-# Build condition inference tree Random Forest
+#Build condition inference tree Random Forest
 set.seed(415)
 fit <- cforest(as.factor(Survived) ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked + Title + FamilySize + FamilyID,
                data = train, controls=cforest_unbiased(ntree=2000, mtry=3)) 
